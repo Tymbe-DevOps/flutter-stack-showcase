@@ -6,7 +6,7 @@
             "request": "launch",
             "type": "dart",
             "args": [
-                "--dart-define=environment=STAGE",
+                "--dart-define-from-file=dev_env.json",
             ]
         },
         {
@@ -14,7 +14,7 @@
             "request": "launch",
             "type": "dart",
             "args": [
-                "--dart-define=environment=PROD"
+                "--dart-define-from-file=prod_env.json"
             ]
         }
     ],

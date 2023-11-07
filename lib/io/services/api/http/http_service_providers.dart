@@ -10,7 +10,8 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 final logInterceptor = Provider<PrettyDioLogger>(
   (ref) {
-    const canPrint = EnvConfig.isTestEnvironment;
+    final envConfig = ref.read(envConfigProvider);
+    final canPrint = envConfig.isTestEnvironment;
 
     final logInterceptor = PrettyDioLogger(
       request: canPrint,
@@ -54,7 +55,8 @@ final tokenInterceptorProvider = Provider((ref) {
 
 /// Base URL
 final baseUrlProvider = Provider<String>((ref) {
-  return EnvConfig.isTestEnvironment ? ApiConstants.baseStageUrl : ApiConstants.baseProdUrl;
+  final envConfig = ref.read(envConfigProvider);
+  return envConfig.isTestEnvironment ? ApiConstants.baseStageUrl : ApiConstants.baseProdUrl;
 });
 
 /// HTTP custom client

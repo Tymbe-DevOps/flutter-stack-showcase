@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:corp_devices/common/env/env_config.dart';
 import 'package:corp_devices/common/logger/state_logger.dart';
 import 'package:corp_devices/corp_app.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ Future<void> main() async {
     ProviderScope(
       observers: [StateLogger()],
       overrides: [
+        envConfigProvider.overrideWithValue(EnvConfig.fromEnvVariables()),
         storageServiceProvider.overrideWithValue(localStorage),
       ],
       child: const CorpApp(),

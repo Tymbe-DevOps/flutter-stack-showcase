@@ -1,4 +1,3 @@
-import 'package:corp_devices/common/env/env_config.dart';
 import 'package:corp_devices/common/router/routes.dart';
 import 'package:corp_devices/io/model/qr_scanner_type.dart';
 import 'package:corp_devices/io/repository/repository_providers.dart';
@@ -6,6 +5,7 @@ import 'package:corp_devices/ui/base/error_screen.dart';
 import 'package:corp_devices/ui/feature/board/page_app_board.dart';
 import 'package:corp_devices/ui/feature/scanner/page_scanner.dart';
 import 'package:corp_devices/ui/feature/splash/page_splash_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -14,7 +14,7 @@ import 'package:go_router/go_router.dart';
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     initialLocation: AppRoute.splash.path,
-    debugLogDiagnostics: EnvConfig.isTestEnvironment,
+    debugLogDiagnostics: kDebugMode,
     routes: _routes,
     errorBuilder: (context, _) => ErrorScreen(onRetry: () {}),
     redirect: (context, state) async {

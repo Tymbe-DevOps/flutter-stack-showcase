@@ -1,0 +1,6 @@
+{
+    "ENVIRONMENT": "PROD",
+    "API_URL": "",
+    "MAPS_API_KEY_ANDROID": "",
+    "MAPS_API_KEY_IOS": ""
+}
