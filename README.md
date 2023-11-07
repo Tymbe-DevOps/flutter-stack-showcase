@@ -1,4 +1,4 @@
-# CORP device management app 
+# Flutter Stack Showcase
 
 # Intro
 This repository contains two apps for managing devices in Applifting. The app is divided into 
