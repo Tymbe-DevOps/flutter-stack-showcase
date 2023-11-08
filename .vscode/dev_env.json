@@ -1,6 +1,6 @@
 {
     "ENVIRONMENT": "STAGE",
-    "API_URL": "",
+    "API_URL": "www.example.api",
     "MAPS_API_KEY_ANDROID": "",
     "MAPS_API_KEY_IOS": ""
 }

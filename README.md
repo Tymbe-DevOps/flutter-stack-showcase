@@ -1,9 +1,7 @@
 # Flutter Stack Showcase
 
 # Intro
-This repository contains two apps for managing devices in Applifting. The app is divided into 
-a) Service app
-b) Client app
+This repository contains showcase of Flutter stack. It is used as a base for new projects.
 
 ### 📚 Libraries
 - [Riverpod](https://riverpod.dev/docs/getting_started) (state management)
@@ -27,8 +25,8 @@ The app has two flavours:
 This config is given in runtime by ``--dart-define=environment=STAGE`` when running build command. Read section below how to run the right flavour app without any hassle by simple predefined commands.  
 
 ## Setup
-- This project is build with Flutter 3.3.x (for Android there is need to use 3.0.x because of internal changes in platform views)
-- There is [Makefile](https://git.applifting.cz/stepan.zalis/corp-devices/-/blob/dev/Makefile) that shortcuts all common flutter commands 
+- This project is build with Flutter 3.13.x
+- There is [Makefile] that shortcuts all common flutter commands 
 
 ```shell script
 $ make dependencies

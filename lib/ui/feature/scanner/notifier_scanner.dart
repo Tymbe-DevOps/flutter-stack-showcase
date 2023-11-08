@@ -4,18 +4,17 @@ import 'package:corp_devices/common/extensions/extensions.dart';
 import 'package:corp_devices/io/enums/enums.dart';
 import 'package:corp_devices/io/model/models.dart';
 import 'package:corp_devices/io/repository/device_repository.dart';
-import 'package:corp_devices/io/repository/repository_providers.dart';
 import 'package:corp_devices/io/repository/login_repository.dart';
+import 'package:corp_devices/io/repository/repository_providers.dart';
 import 'package:corp_devices/io/repository/user_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loggy/loggy.dart';
 
 /// Scanner provider
-final scannerProvider =
-    StateNotifierProvider<ScannerNotifier, QRScannerState>((ref) {
-  final LoginRepository loginRepo = ref.read(loginRepoProvider);
-  final DeviceRepository deviceRepo = ref.read(deviceRepoProvider);
-  final UserRepository userRepo = ref.read(userRepoProvider);
+final scannerProvider = StateNotifierProvider<ScannerNotifier, QRScannerState>((ref) {
+  final loginRepo = ref.read(loginRepoProvider);
+  final deviceRepo = ref.read(deviceRepoProvider);
+  final userRepo = ref.read(userRepoProvider);
   return ScannerNotifier(loginRepo, deviceRepo, userRepo);
 });
 
@@ -69,9 +68,7 @@ class ScannerNotifier extends StateNotifier<QRScannerState> {
       return AppRoutes.clientDetail;
     } else {
       final selectedType = _loginRepository.getAppType();
-      return selectedType == AppType.client
-          ? AppRoutes.clientDetail
-          : AppRoutes.serviceHome;
+      return selectedType == AppType.client ? AppRoutes.clientDetail : AppRoutes.serviceHome;
     }
   }
 

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Routing",
+  "steps": [
+    {
+      "file": "lib/common/router/router.dart",
+      "description": "Vytvoření Routeru přes provider",
+      "line": 15
+    },
+    {
+      "file": "lib/common/router/router.dart",
+      "description": "Logika redirectu. Řeší se, kam se po spuštění bude navigovat, případně kam se redirektuje, pokud např. uživatel není přihlášen, ale zadá jako URL /dashboard. ",
+      "line": 22
+    },
+    {
+      "file": "lib/common/router/routes.dart",
+      "description": "Definice routes\nLze navigovat podle path nebo jméne",
+      "line": 1
+    },
+    {
+      "file": "lib/main_app.dart",
+      "description": "Router definice a předání do aplikace",
+      "line": 14
+    },
+    {
+      "file": "lib/io/services/api/http/http_service_providers.dart",
+      "description": "Vlastní klient založený na Dio package",
+      "line": 62
+    },
+    {
+      "file": "lib/io/services/api/http/dio_http_service.dart",
+      "description": "Implementace HTTPService",
+      "line": 12
+    }
+  ],
+  "isPrimary": true
+}

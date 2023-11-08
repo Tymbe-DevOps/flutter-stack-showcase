@@ -3,6 +3,7 @@ import 'package:hive_test/hive_test.dart';
 import 'package:corp_devices/io/services/local/storage/storage_service.dart';
 import 'package:corp_devices/io/services/local/storage/hive_storage_service.dart';
 import 'package:hive_test/hive_test.dart';
+import 'dart:async';
 
 void main() {
   final StorageService hiveStorageService = HiveStorageService();

@@ -1,4 +1,3 @@
-import 'package:corp_devices/io/repository/auth_repository.dart';
 import 'package:corp_devices/io/repository/device_repository.dart';
 import 'package:corp_devices/io/repository/login_repository.dart';
 import 'package:corp_devices/io/repository/user_repository.dart';
@@ -23,14 +22,4 @@ final userRepoProvider = Provider((ref) {
   final httpService = ref.read(httpServiceProvider(false));
   final preferences = ref.read(storageServiceProvider);
   return UserRepositoryImpl(httpService, preferences);
-});
-
-/// [UserRepository] provider
-final authRepoProvider = Provider((ref) {
-  final httpService = ref.read(httpServiceProvider(false));
-  final preferences = ref.read(storageServiceProvider);
-  return ClientAuthRepository(
-    httpService,
-    preferences,
-  );
 });

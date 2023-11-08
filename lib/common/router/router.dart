@@ -6,6 +6,7 @@ import 'package:corp_devices/ui/feature/board/page_app_board.dart';
 import 'package:corp_devices/ui/feature/scanner/page_scanner.dart';
 import 'package:corp_devices/ui/feature/splash/page_splash_screen.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -18,9 +19,12 @@ final routerProvider = Provider<GoRouter>((ref) {
     routes: _routes,
     errorBuilder: (context, _) => ErrorScreen(onRetry: () {}),
     redirect: (context, state) async {
-      final isAlreadyLoggedIn = ref.read(authRepoProvider).isLoggedIn();
+      final isAlreadyLoggedIn = ref.read(loginRepoProvider).isSigned();
       final isSplashScreen = state.uri.toString() == AppRoute.splash.path;
       final isLoggingIn = state.isLoggingIn();
+
+      // Hide native splash
+      FlutterNativeSplash.remove();
 
       if (isSplashScreen) {
         return isAlreadyLoggedIn ? AppRoute.dashboard.path : AppRoute.login.path;
@@ -29,9 +33,6 @@ final routerProvider = Provider<GoRouter>((ref) {
       if (isLoggingIn) {
         return isAlreadyLoggedIn ? AppRoute.dashboard.path : null;
       }
-
-      // Hide native splash
-      FlutterNativeSplash.remove();
 
       return isAlreadyLoggedIn ? null : AppRoute.splash.path;
     },
@@ -49,6 +50,16 @@ List<RouteBase> get _routes => [
         name: AppRoute.dashboard.routeName,
         path: AppRoute.dashboard.path,
         builder: (context, _) => const AppBoardPage(),
+      ),
+      GoRoute(
+        name: AppRoute.login.routeName,
+        path: AppRoute.login.path,
+        builder: (context, _) => const Placeholder(),
+      ),
+      GoRoute(
+        name: AppRoute.register.routeName,
+        path: AppRoute.register.path,
+        builder: (context, _) => const Placeholder(),
       ),
       GoRoute(
         name: AppRoute.scanner.routeName,

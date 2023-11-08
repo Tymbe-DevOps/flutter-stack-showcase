@@ -7,9 +7,8 @@ abstract class DeviceRepository {
   Future<Result<List<DeviceResponse>>> fetchAllDevices();
   Future<Result<DeviceResponse>> deviceDetail(String serial);
 
-  borrowDevice(String serial) {}
-
-  releaseDevice(String serial) {}
+  Future<Result<void>> borrowDevice(String serial);
+  Future<Result<void>> releaseDevice(String serial);
 }
 
 class DeviceRepositoryImpl extends DeviceRepository {
@@ -33,5 +32,15 @@ class DeviceRepositoryImpl extends DeviceRepository {
       );
       return DeviceResponse.fromJson(response);
     });
+  }
+
+  @override
+  Future<Result<void>> borrowDevice(String serial) async {
+    return Result.loading();
+  }
+
+  @override
+  Future<Result<void>> releaseDevice(String serial) async {
+    return Result.loading();
   }
 }

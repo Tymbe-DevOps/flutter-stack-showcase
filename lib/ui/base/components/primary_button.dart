@@ -1,10 +1,9 @@
-import 'dart:io';
-
 import 'package:corp_devices/common/extensions/extensions.dart';
 import 'package:corp_devices/common/theme/colors.dart';
 import 'package:corp_devices/common/theme/padding.dart';
 import 'package:corp_devices/gen/assets.gen.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -91,7 +90,8 @@ class AdaptiveButtonOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Platform.isIOS
+    // Don't call Platform.isIOS / isAndroid, web build will fail
+    return defaultTargetPlatform == TargetPlatform.iOS
         ? CupertinoButton(
             color: color,
             disabledColor: Colors.transparent,

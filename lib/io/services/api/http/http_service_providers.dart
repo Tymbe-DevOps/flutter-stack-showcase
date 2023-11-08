@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:corp_devices/common/constants/constants.dart';
 import 'package:corp_devices/common/env/env_config.dart';
 import 'package:corp_devices/io/services/api/http/dio_http_service.dart';
@@ -5,7 +6,6 @@ import 'package:corp_devices/io/services/api/interceptors/interceptors.dart';
 import 'package:corp_devices/io/services/local/storage/hive_storage_service.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 final logInterceptor = Provider<PrettyDioLogger>(
@@ -29,9 +29,8 @@ final logInterceptor = Provider<PrettyDioLogger>(
 /// Connection internet checker
 final networkInfoProvider = Provider(
   (ref) {
-    final networkConnectionChecker = InternetConnectionChecker();
-    final networkInfo = NetworkInfoImpl(networkConnectionChecker);
-    return networkInfo;
+    final networkConnectionChecker = Connectivity();
+    return NetworkInfoImpl(networkConnectionChecker);
   },
 );
 

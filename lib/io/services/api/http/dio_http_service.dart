@@ -1,6 +1,5 @@
 import 'package:corp_devices/common/constants/constants.dart';
 import 'package:corp_devices/common/error/exceptions.dart';
-import 'package:corp_devices/common/extensions/extensions.dart';
 import 'package:corp_devices/io/services/api/interceptors/cache_interceptor.dart';
 import 'package:corp_devices/io/services/local/storage/storage_service.dart';
 import 'package:dio/dio.dart';
@@ -8,7 +7,7 @@ import 'package:dio/dio.dart';
 import 'http_service.dart';
 
 /// Custom [Dio] HTTP service with option to get cached result when
-/// [enableCaching] is enabled
+/// [enableCaching] is set to true
 class DioHttpService implements HttpService {
   late final Dio _dio;
   late final String _apiBaseUrl;
@@ -29,15 +28,10 @@ class DioHttpService implements HttpService {
   }
 
   @override
-  String get baseUrl => _validHttpUrl(_apiBaseUrl)
-      ? _apiBaseUrl
-      : throw InvalidBaseUrlException(_apiBaseUrl);
+  String get baseUrl => _validHttpUrl(_apiBaseUrl) ? _apiBaseUrl : throw InvalidBaseUrlException(_apiBaseUrl);
 
   @override
-  Map<String, String> headers = {
-    'accept': 'application/json',
-    'content-type': 'application/json'
-  };
+  Map<String, String> headers = {'accept': 'application/json', 'content-type': 'application/json'};
 
   BaseOptions get baseOptions => BaseOptions(
         baseUrl: baseUrl,
@@ -139,9 +133,10 @@ bool _validHttpUrl(String apiBaseUrl) => Uri.parse(apiBaseUrl).host.isNotEmpty;
 ///
 /// Throws [HttpException] if status code is not in range from 200 to 299
 Response _throwIfInvalidHttpResponse(Response response) {
-  List<int> validHttpRange = 200.rangeTo(299);
+  final statusCode = response.statusCode ?? 0;
+  final validResponse = statusCode >= 200 && statusCode < 300;
 
-  if (response.data == null || !validHttpRange.contains(response.statusCode)) {
+  if (response.data == null || !validResponse) {
     throw HttpException(
       title: 'Http Error!',
       statusCode: response.statusCode,

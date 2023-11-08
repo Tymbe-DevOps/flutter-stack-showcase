@@ -1,0 +1,32 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "HTTP",
+  "steps": [
+    {
+      "file": "lib/io/services/api/http/dio_http_service.dart",
+      "description": "Definice klienta",
+      "line": 15
+    },
+    {
+      "file": "lib/io/services/api/http/dio_http_service.dart",
+      "description": "Caching if needed",
+      "line": 51
+    },
+    {
+      "file": "lib/io/services/api/interceptors/no_internet_interceptor.dart",
+      "description": "NoInternet Interceptor",
+      "line": 6
+    },
+    {
+      "file": "lib/io/services/api/interceptors/user_agent_interceptor.dart",
+      "description": "UserAgent",
+      "line": 11
+    },
+    {
+      "file": "lib/common/extensions/dio.dart",
+      "description": "DioExtension",
+      "line": 4
+    }
+  ],
+  "isPrimary": false
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Architecture",
+  "steps": [
+    {
+      "file": "lib/common/extensions/dio_error.dart",
+      "description": "Map HTTP error to AppError",
+      "line": 8
+    },
+    {
+      "file": "lib/common/result/app_error.dart",
+      "description": "Tato vrstva není potřebná, ale někdy se hodí",
+      "line": 6
+    },
+    {
+      "file": "lib/common/error/failures.dart",
+      "description": "Failure class",
+      "line": 19
+    },
+    {
+      "file": "lib/common/result/result.dart",
+      "description": "Result třída",
+      "line": 8
+    }
+  ],
+  "isPrimary": false
+}

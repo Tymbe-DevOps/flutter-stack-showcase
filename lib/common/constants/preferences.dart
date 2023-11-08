@@ -1,5 +1,5 @@
 class HiveConstants {
-  static const preferencesBox = "PreferenesBox";
+  static const preferencesBox = "PreferencesBox";
   static const appType = "AppType";
   static const token = "Token";
   static const nickname = "Nickname";

@@ -90,3 +90,11 @@ extension ResultObjectExt<T> on T {
 
   Result<T> asFailure(Exception e) => Result.error(AppError.fromException(e));
 }
+
+const foo = "";
+final bar = Result.guard(() => foo);
+final a = bar.map(
+  loading: (_) => "",
+  success: (string) => string.value,
+  error: (_) => "",
+);

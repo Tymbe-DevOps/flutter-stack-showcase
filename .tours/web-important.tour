@@ -1,0 +1,16 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Web: Important",
+  "steps": [
+    {
+      "file": "lib/main.dart",
+      "description": "Definice navigace bez #, jako /#/X/Y ",
+      "line": 16
+    },
+    {
+      "file": "lib/ui/base/components/primary_button.dart",
+      "description": "Zjištění platformy, pokud se přistupuje přes Platfrom.isIOS na webu aplikace crashne",
+      "line": 94
+    }
+  ]
+}
